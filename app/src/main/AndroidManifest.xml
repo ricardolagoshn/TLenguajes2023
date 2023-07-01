@@ -11,9 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TLenguajes2023"
         tools:targetApi="31">
-
         <activity
-            android:name=".ActivityIngresar"
+            android:name=".ActivityList"
             android:exported="true">
 
             <intent-filter>
@@ -26,12 +25,12 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityIngresar"
             android:exported="true">
-
         </activity>
-
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

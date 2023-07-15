@@ -7,6 +7,20 @@
     android:orientation="vertical"
     tools:context=".ActivityIngresar">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="199dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnfoto"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center|bottom"
+        android:text="Capturar" />
+
     <EditText
         android:id="@+id/txtid"
         android:layout_width="match_parent"

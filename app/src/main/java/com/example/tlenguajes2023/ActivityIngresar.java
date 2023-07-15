@@ -12,9 +12,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +26,8 @@ import android.widget.Toast;
 
 import com.example.tlenguajes2023.configuracion.ConfigDB;
 import com.example.tlenguajes2023.configuracion.SQLiteConnection;
+
+import java.io.ByteArrayOutputStream;
 
 public class ActivityIngresar extends AppCompatActivity {
 
@@ -111,7 +115,20 @@ public class ActivityIngresar extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imagen = (Bitmap) extras.get("data");
             fotoview.setImageBitmap(imagen);
+
+            correo.setText(ImagetoBase64()); ;
         }
+    }
+
+    private String ImagetoBase64()
+    {
+        Bitmap imagen = ((BitmapDrawable) fotoview.getDrawable()).getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        imagen.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        byte[] image = byteArrayOutputStream.toByteArray();
+        String Base64Image = Base64.encodeToString(image, Base64.DEFAULT);
+
+        return Base64Image;
     }
 
     private void insertar_datos()
@@ -126,6 +143,7 @@ public class ActivityIngresar extends AppCompatActivity {
         values.put(ConfigDB.direccion,direccion.getText().toString());
         values.put(ConfigDB.edad,edad.getText().toString());
         values.put(ConfigDB.correo,correo.getText().toString());
+        values.put(ConfigDB.foto, ImagetoBase64());
 
         Long resultado = db.insert(ConfigDB.tblpersonas, ConfigDB.id, values);
         if(resultado > 0)
@@ -149,5 +167,6 @@ public class ActivityIngresar extends AppCompatActivity {
         direccion.setText(ConfigDB.Empty);
         edad.setText(ConfigDB.Empty);
         correo.setText(ConfigDB.Empty);
+        fotoview.setImageDrawable(null);
     }
 }

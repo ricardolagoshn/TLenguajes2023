@@ -18,9 +18,11 @@ public class ConfigDB
     public static final String edad = "edad";
     public static final String correo = "correo";
 
+    public static final String foto  = "foto";
+
     // Creacion de objetos DDL - CREATE - DROP - ALTER
     public static final String CreateTBPesonas = "CREATE TABLE PERSONAS (id INTEGER PRIMARY KEY AUTOINCREMENT, nombres TEXT," +
-            "apellidos TEXT, genero TEXT, direccion TEXT, edad INTEGER, correo TEXT)";
+            "apellidos TEXT, genero TEXT, direccion TEXT, edad INTEGER, correo TEXT, foto BLOB)";
 
     public static final String DropTBPersonas = "DROP TABLE IF EXISTS PERSONAS";
 

@@ -4,7 +4,9 @@
     <string name="app_btnl">Mostrar</string>
     <string name="app_ap">Proporcione su apellido</string>
     <string name="app_dir">proporcione una direccion</string>
-
+    <string name="PrinterName">Nombres</string>
+    <string name="PrinterManufacturer">Apellidos</string>
+    <string name="PrinterImage">Imagen</string>
 
     <string-array name="gender_options">
         <item>Masculino</item>

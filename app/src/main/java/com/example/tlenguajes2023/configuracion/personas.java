@@ -10,11 +10,13 @@ public class personas
     private Integer edad;
     private String correo;
 
+    private String foto;
+
     public personas()
     {
     }
 
-    public personas(Integer id, String nombres, String apellidos, String genero, String direccion, Integer edad, String correo) {
+    public personas(Integer id, String nombres, String apellidos, String genero, String direccion, Integer edad, String correo, String foto) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -22,6 +24,7 @@ public class personas
         this.direccion = direccion;
         this.edad = edad;
         this.correo = correo;
+        this.foto = foto;
     }
 
     public Integer getId() {
@@ -78,5 +81,13 @@ public class personas
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

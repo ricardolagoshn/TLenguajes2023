@@ -28,6 +28,9 @@ import com.example.tlenguajes2023.configuracion.ConfigDB;
 import com.example.tlenguajes2023.configuracion.SQLiteConnection;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class ActivityIngresar extends AppCompatActivity {
 
@@ -129,6 +132,19 @@ public class ActivityIngresar extends AppCompatActivity {
         String Base64Image = Base64.encodeToString(image, Base64.DEFAULT);
 
         return Base64Image;
+    }
+
+    public String convertPDFToBase64(String filePath) {
+        try {
+            FileInputStream fileInputStream = new FileInputStream(new File(filePath));
+            byte[] bytes = new byte[fileInputStream.available()];
+            fileInputStream.read(bytes);
+            fileInputStream.close();
+            return Base64.encodeToString(bytes, Base64.DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     private void insertar_datos()
